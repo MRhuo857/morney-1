@@ -16,4 +16,11 @@ body{
   font-family: $font-hei;
   font-size: 16px;
   line-height: 1.2;
+  color: #333;
+}
+button{
+  font-family: inherit;
+}
+:focus{
+  outline: none;
 }
