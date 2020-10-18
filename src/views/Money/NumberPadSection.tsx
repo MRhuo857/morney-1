@@ -50,7 +50,15 @@ const Wrapper = styled.section`
   }
 `;
 const NumberPadSection = () => {
-  const [outPut, setOutPut] = useState('0');
+  const [outPut, _setOutPut] = useState('0');
+  const setOutPut=(outPut:string)=>{
+    if (outPut.length>16){
+      outPut=outPut.slice(0,16)
+    }else if (outPut.length===0){
+      outPut='0'
+    }
+    _setOutPut(outPut)
+  }
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent;
     if (text === null) {return;}
@@ -70,16 +78,20 @@ const NumberPadSection = () => {
         }else{
           setOutPut(outPut+text)
         }
-
         break;
       case '.':
-        console.log('点')
+        if (outPut.indexOf('.')>=0){return;}
+        setOutPut(outPut+'.')
         break;
       case'清空':
-        console.log('清空')
+        setOutPut('0')
         break
       case '删除':
-        console.log('删除')
+        if (outPut.length===1){
+          setOutPut('0')
+        }else {
+          setOutPut(outPut.slice(0,-1))
+        }
     }
   };
   return (
