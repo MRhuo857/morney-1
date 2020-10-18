@@ -10,12 +10,16 @@ import {
 import Tags from 'views/Tags';
 import Money from './views/Money';
 import Statistics from './views/Statistics';
+import {Tag} from './views/Tag';
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/tags">
+        <Route path="/tags" exact>
           <Tags/>
+        </Route>
+        <Route path="/tags/:tag" exact>
+          <Tag/>
         </Route>
         <Route path="/money">
           <Money/>
