@@ -1,4 +1,4 @@
-const generateOutPut = (text: string,outPut='0') => {
+const generateOutPut = (text: string,outPut: string ='0') => {
   switch (text) {
     case'0':
     case'1':
