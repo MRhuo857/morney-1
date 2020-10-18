@@ -1,8 +1,16 @@
 import React from 'react';
-const Tag:React.FC=()=>{
+import {useTags} from '../useTags';
+import { useParams } from 'react-router-dom';
+type Params={
+  id:string
+}
+const Tag:React.FC=(props)=>{
+  const {findTags}=useTags()
+  let {id}=useParams<Params>()
+  const tag=findTags(parseInt(id))
   return(
     <div>
-      hi
+      {tag.name}
     </div>
   )
 }
