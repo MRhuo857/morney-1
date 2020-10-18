@@ -15,14 +15,11 @@ const Wrapper = styled.section`
         content: '';
         display:block; 
         height: 3px;
-        background: #ff6600;
+        background: #333;
         position:absolute;
         bottom:0;
         width: 100%;
         left: 0;
-      }
-      &.selected{
-      color: #F60;
       }
     }
   }
