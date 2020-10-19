@@ -27,7 +27,6 @@ function Money() {
   };
   return (
     <MyLayout>
-      {/*{selected.tags.join('.')}*/}
       {/*<hr/>*/}
       {/*{selected.note}*/}
       {/*<hr/>*/}
