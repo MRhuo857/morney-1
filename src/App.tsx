@@ -15,10 +15,10 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/tags" exact>
+        <Route exact path="/tags" >
           <Tags/>
         </Route>
-        <Route path="/tags/:id" exact>
+        <Route exact path="/tags/:id" >
           <Tag/>
         </Route>
         <Route path="/money">
