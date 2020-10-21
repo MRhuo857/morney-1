@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Wrapper} from './NumberPadSection/Wrapper';
 import {generateOutPut} from './NumberPadSection/generateOutPut';
 
@@ -8,17 +8,19 @@ type Props = {
   onOk?: () => void
 }
 const NumberPadSection: React.FC<Props> = (props) => {
-    const outPut = props.value.toString();
-    const setOutPut = (outPut: string) => {
-      let value;
-      if (outPut.length > 16) {
-        value = parseFloat(outPut.slice(0, 16));
-      } else if (outPut.length === 0) {
-        value = 0;
+    // const outPut = props.value.toString();
+    const [output,_setOutput]=useState(props.value.toString())
+    const setOutPut = (output: string) => {
+      let newOutput:string;
+      if (output.length > 16) {
+        newOutput = output.slice(0, 16);
+      } else if (output.length === 0) {
+        newOutput = '0';
       } else {
-        value = parseFloat(outPut);
+        newOutput = output;
       }
-      props.onChange(value);
+      _setOutput(newOutput)
+      props.onChange(parseFloat(newOutput));
     };
     const onClickButtonWrapper = (e: React.MouseEvent) => {
       const text = (e.target as HTMLButtonElement).textContent;
@@ -28,13 +30,13 @@ const NumberPadSection: React.FC<Props> = (props) => {
         return;
       }
       if ('0123456789.'.split('').concat(['清空', '删除']).indexOf(text) >= 0) {
-        setOutPut(generateOutPut(text, outPut));
+        setOutPut(generateOutPut(text, output));
       }
     };
     return (
       <Wrapper>
         <div className="output">
-          {outPut}
+          {output}
         </div>
         <div className="pad clearfix" onClick={onClickButtonWrapper}>
           <button>1</button>
