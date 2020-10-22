@@ -16,9 +16,11 @@ const defaultFormData = {
   tagIds: [] as number[],
   note: '',
   category: '-' as Category,
-  amount: 0
+  amount: 0,
 };
-
+const Wrapper=styled.div`
+      background: #c4c4c4;
+`
 function Money() {
   const [selected, setSelected] = useState(defaultFormData);
   const {addRecord} = useRecords();
@@ -34,14 +36,18 @@ function Money() {
       setSelected(defaultFormData);
     }
   };
+
   return (
     <MyLayout>
       <TagsSection value={selected.tagIds}
                    onChange={tagIds => onChange({tagIds})}/>
       <NoteSection value={selected.note}
                    onChange={note => onChange({note})}/>
-      <CategorySection value={selected.category}
-                       onChange={category => onChange({category})}/>
+      <Wrapper>
+        <CategorySection value={selected.category}
+                         onChange={category => onChange({category})}/>
+      </Wrapper>
+
       <NumberPadSection value={selected.amount}
                         onChange={amount => onChange({amount})}
                         onOk={submit}

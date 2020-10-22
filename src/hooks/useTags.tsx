@@ -32,19 +32,23 @@ const useTags = () => {
     return result;
   };
   const updateTag = (id: number, {name}: { name: string }) => {
-    setTags(tags.map(tag=>tag.id===id?{id,name:name}:tag));
+    setTags(tags.map(tag => tag.id === id ? {id, name: name} : tag));
   };
   const deleteTag = (id: number) => {
-    setTags(tags.filter(tag=>tag.id!==id))
+    setTags(tags.filter(tag => tag.id !== id));
   };
   const addTag = () => {
     const tagName = window.prompt('请输入标签名');
     if (tagName !== null) {
-      setTags([...tags, {id:createId(),name:tagName} ]);
+      setTags([...tags, {id: createId(), name: tagName}]);
     } else {
       window.alert('标签名不能为空');
     }
   };
-  return {tags, setTags,addTag, findTags, updateTag, findTagIndex, deleteTag};
+  const getName = (id: number) => {
+    const tag = tags.filter(t => t.id === id)[0];
+    return tag ? tag.name : '';
+  };
+  return {tags, setTags,getName, addTag, findTags, updateTag, findTagIndex, deleteTag};
 };
 export {useTags};
