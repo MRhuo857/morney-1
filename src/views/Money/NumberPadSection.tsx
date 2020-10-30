@@ -50,7 +50,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
           <button>7</button>
           <button>8</button>
           <button>9</button>
-          <button className="ok">ok</button>
+          <button   className="ok" >ok</button>
           <button className="zero">0</button>
           <button className="dot">.</button>
         </div>
