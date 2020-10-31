@@ -6,6 +6,7 @@ const Wrapper = styled.section`
   background: #f5f5f5;
   padding: 0 16px;
   font-size: 14px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
 `;
 type Props={
   value:string
@@ -19,7 +20,7 @@ const NoteSection:React.FC<Props> = (props) => {
   };
   return (
     <Wrapper>
-      <Input label="备注" type="text" value={note} onChange={onChange}/>
+      <Input label="备注:" placeholder='请输入备注信息' type="text" value={note} onChange={onChange}/>
     </Wrapper>
   );
 };

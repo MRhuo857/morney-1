@@ -8,7 +8,6 @@ type Props = {
   onOk?: () => void
 }
 const NumberPadSection: React.FC<Props> = (props) => {
-    // const outPut = props.value.toString();
     const [output,_setOutput]=useState(props.value.toString())
     const setOutPut = (output: string) => {
       let newOutput:string;

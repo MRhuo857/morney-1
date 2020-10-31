@@ -17,6 +17,7 @@ const Item = styled.div`
   font-size: 18px;
   line-height: 20px;
   padding: 10px 16px;
+  border-bottom: 1px solid #eee;
   > .note{
     margin-right: auto;
     margin-left: 16px;
@@ -24,6 +25,7 @@ const Item = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 14px;
   }
 `;
 const Header = styled.h3`
