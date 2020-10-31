@@ -10,6 +10,9 @@ const Wrapper = styled.div`
 const Main = styled.div`
   flex-grow: 1;
   overflow: auto;
+  &::-webkit-scrollbar{
+      display: none;
+  }
 `;
 type Props = {
   scrollTop?: number
@@ -19,10 +22,10 @@ type Props = {
 const Layout: React.FC<Props> = (props) => {
   const mainRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    setTimeout(()=>{
+    setTimeout(() => {
       if (!mainRef.current) {return;}
       mainRef.current.scrollTop = props.scrollTop!;
-    },0)
+    }, 0);
   }, [props.scrollTop]);
 
   return (
